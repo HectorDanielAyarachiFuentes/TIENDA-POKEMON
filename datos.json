@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pikachu",
+        "imagen": "https://github.com/HectorDanielAyarachiFuentes/TIENDA-RAMONCITO-POKEMONS/blob/8dde45491160c65c00978722ab0d0bd515fbf767/Fotos/FLMjsSGXsAQakfm.jpg?raw=true",
+        "descripcion": "Pikachu es un Pokémon eléctrico muy conocido por su carisma y poder.",
+        "caracteristicas": {
+            "tipo": "Eléctrico",
+            "habilidad": "Electricidad estática",
+            "poder": 55,
+            "velocidad": 90
+        },
+        "compra": "Puedes comprar a Pikachu en la tienda Pokémon.",
+        "precio": 200.055,
+        "votacion": 10
+    },
+    {
+        "id": 2,
+        "nombre": "Charizard",
+        "imagen": "https://github.com/HectorDanielAyarachiFuentes/TIENDA-RAMONCITO-POKEMONS/blob/8dde45491160c65c00978722ab0d0bd515fbf767/Fotos/doge_charizard_by_rytrom27_d6snycu-fullview.jpg?raw=true",
+        "descripcion": "Charizard es un Pokémon de tipo fuego/volador, conocido por su ferocidad en batalla.",
+        "caracteristicas": {
+            "tipo": "Fuego/Volador",
+            "habilidad": "Mar Llamas",
+            "poder": 84,
+            "velocidad": 100
+        },
+        "compra": "Puedes comprar a Charizard en la tienda Pokémon.",
+        "precio": 300.222,
+        "votacion": 4
+    },
+    {
+        "id": 3,
+        "nombre": "Gengar",
+        "imagen": "https://github.com/HectorDanielAyarachiFuentes/TIENDA-RAMONCITO-POKEMONS/blob/main/Fotos/pngwing.com.png?raw=true",
+        "descripcion": "Gengar es un Pokémon de tipo fantasma/veneno que disfruta gastando bromas a otros Pokémon.",
+        "caracteristicas": {
+            "tipo": "Fantasma/Veneno",
+            "habilidad": "Levitación",
+            "poder": 65,
+            "velocidad": 110
+        },
+        "compra": "Puedes comprar a Gengar en la tienda Pokémon.",
+        "precio": 100.666,
+        "votacion": 5
+    }
+]

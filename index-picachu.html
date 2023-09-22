@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercio Digital de Pokémon</title>
+    <link rel="stylesheet" href="style.css">
+    <STYLE>A {text-decoration: none;} </STYLE>
+
+    <link type="image/png" sizes="120x120" rel="icon" href="https://github.com/HectorDanielAyarachiFuentes/TIENDA-RAMONCITO-POKEMONS/blob/main/Fotos/umbrella-corporation-120.png?raw=true">
+</head>
+<body>
+    <header class="header">
+        <h1>CATALOGO POKÉMON</h1>
+        <p>Solo disponibles los mejores Pokémon:</p>
+    </header>
+    <div class="navbar">
+        <div class="navbar-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <span id="ramoncito">TIENDA RAMONCITO</span>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="index-picachu.html">CATALOGO</a></li>
+            <li><a href="https://hectordanielayarachifuentes.github.io/venta-tarjetas-pokemon/">TARJETAS POKEMON</a></li>
+        </ul>
+        <button id="modoBoton" onclick="cambiarModo()">Modo claro</button> <!-- Botón de cambio de modo -->
+    </div>
+    <div class="content">
+        <!-- Aquí se mostrarán los Pokémon, esto debe estar presente para que funcione el script -->
+        <div id="pokemon-container"></div>
+    </div>
+    <footer class="footer">
+        <p>© 2023 Comercio Digital de Pokémon</p>
+        <p>¡Atrápalos ya, o al menos clónalos!</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="script-detalle.js"></script>
+    <script src="script-index-picachu.js"></script>
+</body>
+</html>
