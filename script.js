@@ -4,18 +4,34 @@ function toggleMenu() {
     navbarMenu.classList.toggle('show');
 }
 
-// DARK MODE
-var modoBoton = document.getElementById('modoBoton');
-var ventanaEmergente = document.getElementById("miVentanaEmergente");
+// --- MODO OSCURO / CLARO ---
+const modoBoton = document.getElementById('modoBoton');
 
-// Agrega un listener al botón para cambiar el modo
-modoBoton.addEventListener('click', function() {
-    // Alternar la clase "dark-mode" en el elemento body
+// Función para cambiar el tema. Es llamada por el atributo onclick en el HTML.
+function cambiarModo() {
     document.body.classList.toggle('dark-mode');
-    
-    // Alternar la clase "dark-mode" en la ventana emergente
-    ventanaEmergente.classList.toggle("dark-mode");
-});
+    actualizarEstadoModo();
+}
+
+// Función para actualizar el texto del botón y guardar la preferencia en localStorage
+function actualizarEstadoModo() {
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        if (modoBoton) modoBoton.textContent = 'Modo Claro';
+    } else {
+        localStorage.setItem('theme', 'light');
+        if (modoBoton) modoBoton.textContent = 'Modo Oscuro';
+    }
+}
+
+// IIFE para aplicar el tema guardado al cargar la página y evitar parpadeos
+(function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+    actualizarEstadoModo();
+})();
 
 /** VENTANA EMERGENTE */
 // Obtén el elemento de la ventana emergente
@@ -23,7 +39,9 @@ const miVentanaEmergente = document.getElementById('miVentanaEmergente');
 
 // Función para mostrar la ventana emergente
 function mostrarVentanaEmergente() {
-    miVentanaEmergente.style.display = 'block';
+    if (miVentanaEmergente) {
+        miVentanaEmergente.style.display = 'block';
+    }
 }
 
 // Mostrar la ventana emergente automáticamente después de cinco segundos
@@ -34,26 +52,13 @@ const cerrarPopup = document.getElementById('cerrarPopup');
 
 // Función para cerrar la ventana emergente
 function cerrarVentanaEmergente() {
-    miVentanaEmergente.style.display = 'none';
-    miVentanaEmergente.scrollTop = 0;
+    if (miVentanaEmergente) {
+        miVentanaEmergente.style.display = 'none';
+        miVentanaEmergente.scrollTop = 0;
+    }
 }
 
 // Agrega un evento de clic al botón para cerrar la ventana emergente
-cerrarPopup.addEventListener('click', cerrarVentanaEmergente);
-
-// Función para cambiar el modo oscuro
-function cambiarModo() {
-  const modoBoton = document.getElementById('modoBoton');
-  const body = document.body;
-
-  if (body.classList.contains('modo-oscuro')) {
-    // Cambia a modo claro
-    body.classList.remove('modo-oscuro');
-    modoBoton.innerText = 'Modo claro';
-  } else {
-    // Cambia a modo oscuro
-    body.classList.add('modo-oscuro');
-    modoBoton.innerText = 'Modo oscuro';
-  }
+if (cerrarPopup) {
+    cerrarPopup.addEventListener('click', cerrarVentanaEmergente);
 }
-

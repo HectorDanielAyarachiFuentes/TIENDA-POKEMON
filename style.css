@@ -1,17 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Press+Start+2P&display=swap');
+
 body {
-    background-image: url('pokeball-background.jpg'); /* Fondo con diseño de Pokébolas */
-    background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 25px,rgb(255,203,5) 25px, rgb(255,203,5) 27px,transparent 27px, transparent 51px),repeating-linear-gradient(90deg, transparent 0px, transparent 25px,rgb(255,203,5) 25px, rgb(255,203,5) 27px,transparent 27px, transparent 51px),repeating-linear-gradient(90deg, transparent 0px, transparent 50px,rgb(255,0,0) 50px, rgb(255,0,0) 52px,transparent 52px, transparent 102px),repeating-linear-gradient(0deg, transparent 0px, transparent 50px,rgb(255,0,0) 50px, rgb(255,0,0) 52px,transparent 52px, transparent 102px),repeating-linear-gradient(0deg, rgb(17,0,255) 0px, rgb(17,0,255) 2px,transparent 2px, transparent 102px),repeating-linear-gradient(90deg, rgb(17,0,255) 0px, rgb(17,0,255) 2px,transparent 2px, transparent 102px),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
-    background-size: cover;
+    background-color: #f4f4f9; /* Un fondo gris claro, limpio y moderno */
+    background-image: url('https://www.transparenttextures.com/patterns/pokeballs.png'); /* Textura sutil de Pokébolas */
     color: #333; /* Texto negro */
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif; /* Fuente más amigable */
     margin: 0;
     padding: 0;
+    /* --- Lógica para el footer pegajoso --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Estilos para el modo oscuro */
 body.dark-mode {
-    background-color: #1b9843; /* Fondo gris oscuro */
-    color: #fff; /* Texto blanco */
+    background-image: none;
+    background-color: #121212; /* Fondo gris muy oscuro */
+    color: #e0e0e0; /* Texto ligeramente gris */
+}
+
+/* El contenido principal debe crecer para empujar el footer hacia abajo */
+main {
+    flex-grow: 1;
 }
 
 .header {
@@ -21,8 +32,11 @@ body.dark-mode {
 }
 
 .header h1 {
-    font-size: 36px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem; /* Ajustado para la fuente pixelada */
     margin: 0;
+    color: #3B4CCA; /* Azul Pokémon para contraste sobre el amarillo */
+    text-shadow: 2px 2px #CC0000; /* Sombra roja para un efecto 2D */
 }
 
 .navbar {
@@ -48,9 +62,10 @@ body.dark-mode {
 }
 
 #ramoncito {
-    font-size: 24px;
-    font-weight: bold;
-
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem; /* Ajustado para la fuente pixelada */
+    font-weight: normal; /* La fuente ya es bold por naturaleza */
+    text-shadow: 1px 1px #333;
 }
 
 .navbar-menu {
@@ -70,22 +85,15 @@ body.dark-mode {
 }
 
 
-/* Estilos para el modo oscuro VENTANA EMERGENTE */
-.dark-mode {
-    background-color: #121212 !important;
-    color: #fff !important;
-}
-.dark-mode h2 {
-    color: #1100ff !important; /* Cambia el color del encabezado en modo oscuro */
-}
-/* Agrega otros estilos para elementos específicos aquí */
-
-
-
 
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+        text-shadow: 1px 1px #CC0000;
+    }
+
     .navbar-toggle {
         display: flex;
         justify-content: center; /* Centra horizontalmente */
@@ -110,30 +118,20 @@ body.dark-mode {
         margin: 10px 0;
     }
     #ramoncito {
-        font-size: 24px;
-        font-weight: bold;
-        margin:20px
-
-    }
-}
- /* Estilos para hacer que el texto sea responsivo a 320px */
- @media screen and (max-width: 320px) {
-    #titulo {
-        font-size: 28px; /* Tamaño de fuente más pequeño para pantalla pequeña */
-    }
-
-    #descripcion {
-        font-size: 14px; /* Tamaño de fuente más pequeño para pantalla pequeña */
+        font-size: 1rem; /* Ajustado para móvil */
+        font-weight: normal;
+        margin: 20px;
     }
 }
 /* Estilos para el contenido */
 .content {
     max-width: 800px;
     margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    background-color: #ffffff; /* Fondo blanco sólido para mejor legibilidad */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #dedede;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
 }
 
 .content p {
@@ -141,9 +139,39 @@ body.dark-mode {
     line-height: 1.5;
 }
 
+/* --- Estilos para la sección Héroe (index.html) --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    max-width: 200px;
+    display: block;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 12px 24px;
+    background-color: #3B4CCA; /* Azul Pokémon */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
 /* Estilos para el footer */
 .footer {
-    background-color: #0055A4; /* Azul Pokémon */
+    background-color: #3B4CCA; /* Azul Pokémon */
     color: #fff; /* Texto blanco */
     text-align: center;
     padding: 20px;
@@ -162,20 +190,20 @@ footer a:hover {
 
 /* Estilos para la barra de navegación en modo oscuro */
 body.dark-mode .navbar {
-    background-color: #222; /* Cambiar el color de fondo de la barra de navegación en modo oscuro */
+    background-color: #CC0000; /* Rojo oscuro */
     color: #fff; /* Cambiar el color del texto en modo oscuro */
 }
 
 
 /* Estilos para el footer en modo oscuro */
 body.dark-mode .footer {
-    background-color: #111; /* Cambiar el color de fondo del footer en modo oscuro */
+    background-color: #1a2a6c; /* Azul oscuro */
     color: #fff; /* Cambiar el color del texto del footer en modo oscuro */
 }
 
 /* Estilos para los enlaces en modo oscuro */
 body.dark-mode a {
-    color: #2cad2a; /* Cambiar el color de los enlaces en modo oscuro */
+    color: #FFCB05; /* Amarillo Pokémon para enlaces */
 }
 
 /* Estilos para los enlaces en el footer en modo oscuro */
@@ -189,48 +217,95 @@ body.dark-mode #modoBoton {
     color: #333; /* Cambiar el color del texto del botón de modo oscuro en modo oscuro */
 }
 
-/* PICACHU HTML ATENCION!!!/*
-/* Estilo para los divs de las tarjetas de Pokémon */
+body.dark-mode .hero-image {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode .cta-button {
+    background-color: #FFCB05; /* Amarillo en modo oscuro */
+    color: #121212;
+}
+
+
+/* --- ESTILOS DE TARJETAS POKÉMON --- */
+
+/* Contenedor de la cuadrícula de Pokémon */
+#pokemon-container {
+    display: grid;
+    /* Crea columnas responsivas: se ajustan automáticamente. Cada una tendrá un mínimo de 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+}
+
+/* Estilo base de la tarjeta */
 .pokemon-card {
-    border: 1px solid #253B80; /* Borde azul */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interior */
-    margin-bottom: 20px; /* Espacio entre las tarjetas */
-    text-align: center; /* Alineación de texto en el centro */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden; /* Asegura que los hijos no se salgan de los bordes redondeados */
+    text-align: center;
 }
 
-/* Estilo para la tarjeta especial con degradado de colores Pokémon */
-.special-pokemon-card {
-    background: linear-gradient(45deg, #FF5959, #FFCB05, #253B80); /* Degradado de colores Pokémon */
-    border: 1px solid #253B80; /* Borde azul */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interior */
-    margin-bottom: 20px; /* Espacio entre las tarjetas */
-    text-align: center; /* Alineación de texto en el centro */
+.pokemon-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta al pasar el ratón */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.pokemon-card img {
-    max-width: 100%; /* Imágenes ajustadas al ancho de la tarjeta */
-    height: auto; /* Altura automática */
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+/* Contenedor de la imagen */
+.pokemon-card-image-container {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Altura fija para consistencia */
 }
 
-.pokemon-card h2 {
-    color: #253B80; /* Texto azul para el título */
-    font-size: 24px; /* Tamaño de fuente para el título */
-    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+.pokemon-card-image {
+    max-height: 90%;
+    max-width: 90%;
+    object-fit: contain; /* Asegura que la imagen se vea completa sin distorsión */
 }
 
-.pokemon-card p {
-    color: #333; /* Texto negro */
-    font-size: 16px; /* Tamaño de fuente para el texto */
+/* Contenido de la tarjeta (nombre, descripción, botón) */
+.pokemon-card-content {
+    padding: 1.5rem;
 }
+
+.pokemon-card-content h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.pokemon-card-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* --- Colores basados en el tipo de Pokémon --- */
+/* El borde superior de la tarjeta cambiará de color según el tipo */
+.pokemon-card.type-eléctrico { border-top: 5px solid #F8D030; }
+.pokemon-card.type-fuego-volador { border-top: 5px solid #F08030; }
+.pokemon-card.type-fantasma-veneno { border-top: 5px solid #705898; }
+/* Agrega más tipos según sea necesario */
+.pokemon-card.type-agua { border-top: 5px solid #6890F0; }
+.pokemon-card.type-planta { border-top: 5px solid #78C850; }
+.pokemon-card.type-normal { border-top: 5px solid #A8A878; }
+.pokemon-card.type-veneno { border-top: 5px solid #A040A0; }
+.pokemon-card.type-psíquico { border-top: 5px solid #F85888; }
+.pokemon-card.type-roca { border-top: 5px solid #B8A038; }
+
 
 /*/ botones de picachu html
 /* Estilos base para los botones */
 .ver-mas-button,
+.cta-button,
 .compra-button,
 .volver-button {
+    display: inline-block;
+    margin-top: 1rem;
     background-color: #ffcc29; /* Amarillo claro - color de Pokémon tipo eléctrico */
     color: #000; /* Texto en color negro */
     border: none;
@@ -244,16 +319,17 @@ body.dark-mode #modoBoton {
 
 /* Estilo para el botón "Compra" */
 .compra-button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4DAD5B; /* Verde Pokémon */
     color: #fff; /* Texto en color blanco */
     padding: 12px 24px; /* Tamaño más grande */
 }
 
 /* Estilo para el botón "Volver Atrás" */
 .volver-button {
-    background-color: #0074e4; /* Azul */
+    background-color: #6c757d; /* Gris oscuro */
     color: #fff; /* Texto en color blanco */
     padding: 12px 24px; /* Tamaño más grande */
+    border: 2px solid transparent;
 }
 
 /* Estilo para el botón "Modo" */
@@ -265,17 +341,28 @@ body.dark-mode #modoBoton {
 
 /* Estilos al pasar el mouse sobre los botones */
 .ver-mas-button:hover, 
+.cta-button:hover,
 .compra-button:hover,
+.volver-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 .volver-button:hover,
 #modoBoton:hover {
     background-color: #fbb03b; /* Amarillo más oscuro al pasar el mouse */
 }
 
 /* Media query para pantallas con un ancho máximo de 320px */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
+    .hero-section {
+        flex-direction: column-reverse; /* Pone la imagen arriba en móviles */
+        text-align: center;
+    }
+
     .ver-mas-button,
     .compra-button,
     .volver-button,
+    .cta-button,
     #modoBoton {
         padding: 10px 20px; /* Volver al tamaño original para todos los botones */
     }
@@ -298,6 +385,16 @@ body.dark-mode #modoBoton {
     z-index: 1000;
     overflow-y: auto; /* Habilita el desplazamiento vertical solo dentro de la ventana emergente */
     max-height: 100vh; /* Establece la altura máxima al alto de la ventana */
+}
+
+body.dark-mode .ventana-emergente {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .ventana-emergente h2 {
+    color: #FFCB05; /* Amarillo Pokémon para títulos */
 }
 
 
@@ -373,90 +470,210 @@ body.dark-mode #modoBoton {
     padding: 20px; /* Agrega espacio alrededor del contenido */
 }
 
+/* --- Estilos para la página de Detalle --- */
 .pokemon-details {
-    background-color: #f5f5f5; /* Color de fondo para los detalles del Pokémon */
-    padding: 20px; /* Espaciado interior para los detalles */
-    margin-top: 20px; /* Margen superior para separar los detalles del contenido superior */
-    border: 1px solid #ddd; /* Borde alrededor de los detalles */
-    border-radius: 5px; /* Redondear las esquinas del borde */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra para los detalles */
+    display: grid;
+    gap: 2rem;
+    padding: 0; /* El padding ya está en los hijos */
+    background: none; /* Hereda el fondo del padre .content */
+    border: none;
+    box-shadow: none;
 }
-/*/*COMPRA/*/
 
-.pokemon-price {
-    background-color: #ffcc00; /* Amarillo - color de Pikachu */
-    padding: 10px;
+/* Layout de dos columnas para pantallas grandes */
+@media (min-width: 768px) {
+    .pokemon-details {
+        grid-template-columns: 1fr 1.5fr; /* Columna de imagen más pequeña */
+        align-items: start;
+    }
+}
+
+.detail-image-column .pokemon-card-image-container {
+    height: 350px; /* Imagen más grande en la página de detalle */
+    border-radius: 10px;
+}
+
+.detail-info-column {
+    padding: 1rem;
+}
+
+.detail-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.detail-description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Insignia de tipo */
+.pokemon-type-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.type-badge-eléctrico { background-color: #F8D030; color: #333; }
+.type-badge-fuego-volador { background: linear-gradient(45deg, #F08030, #F8D030); }
+.type-badge-fantasma-veneno { background: linear-gradient(45deg, #705898, #A040A0); }
+.type-badge-agua { background-color: #6890F0; }
+.type-badge-planta { background-color: #78C850; }
+.type-badge-normal { background-color: #A8A878; }
+.type-badge-veneno { background-color: #A040A0; }
+.type-badge-psíquico { background-color: #F85888; }
+.type-badge-roca { background-color: #B8A038; }
+
+/* Contenedor de estadísticas */
+.stats-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eee;
+}
+
+.stats-container h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stats-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stats-container li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Estilos para la sección de compra --- */
+.purchase-section {
+    background-color: #f7f7f7;
+    padding: 1.5rem;
     border: 1px solid #333; /* Borde negro */
     border-radius: 5px; /* Redondear las esquinas */
     text-align: center;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Sombra ligera */
 }
 
-.pokemon-price label {
-    font-size: 16px;
-    color: #333; /* Texto negro */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.unit-price {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 0 1rem 0;
+}
+
+.purchase-section label {
+    font-size: 1rem;
     font-weight: bold;
 }
 
-.pokemon-price input[type="number"] {
-    width: 50px;
-    padding: 5px;
-    margin: 0 10px;
-    border: 1px solid #333; /* Borde negro */
-    border-radius: 5px; /* Redondear las esquinas */
+.purchase-section input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.pokemon-price .buy-button {
-    background-color: #ff0000; /* Rojo - color de Poké Balls */
-    color: #fff; /* Texto blanco */
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px; /* Redondear las esquinas */
-    cursor: pointer;
-}
-
-.pokemon-price .buy-button:hover {
-    background-color: #cc0000; /* Cambia el color al pasar el mouse */
-}
-
-.pokemon-price p {
-    margin-top: 10px;
-}
-
-.pokemon-price strong {
-    color: #333; /* Texto negro */
-}
-
-#total-price {
-    color: #333; /* Texto negro */
-    font-size: 18px;
+.total-price {
+    font-size: 1.2rem;
     font-weight: bold;
+    margin: 1rem 0;
+}
+
+body.dark-mode .detail-title {
+    color: #FFCB05;
+}
+
+body.dark-mode .stats-container {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .stats-container h3 {
+    border-color: #444;
+}
+
+
+body.dark-mode .purchase-section {
+    background-color: #3a3a3a;
+    border-color: #555;
+}
+body.dark-mode .purchase-section input[type="number"] {
+    background-color: #555;
+    color: #e0e0e0;
+    border-color: #777;
 }
 
 /***ESTILOS DARKS***/
 /* Estilos para el div .pokemon-details en modo oscuro */
-body.dark-mode #pokemon-details {
-    background-color: #000000; /* Cambiar el color de fondo en modo oscuro */
-    color: #fff; /* Cambiar el color del texto en modo oscuro */
-    border: 1px solid #fff; /* Cambiar el borde en modo oscuro */
+body.dark-mode .pokemon-details,
+body.dark-mode .detail-info-column {
+    background-color: transparent; /* El fondo lo da el .content */
+    border: none;
+    color: #e0e0e0;
 }
 
-/* Estilo para resaltar el texto blanco en modo oscuro */
-body.dark-mode #pokemon-details p {
-    color: #fff; /* Cambiar el color del texto de los párrafos en modo oscuro */
+body.dark-mode .detail-description {
+    color: #e0e0e0; /* Cambiar el color del texto de los párrafos en modo oscuro */
     /* Agrega otros estilos de resaltado para el texto en blanco aquí */
 }
 
 /* Estilos para el div .content en modo oscuro */
 body.dark-mode .content {
-    background-color: #000000; /* Cambiar el color de fondo en modo oscuro */
-    color: #fff; /* Cambiar el color del texto en modo oscuro */
-    border: 1px solid #fff; /* Cambiar el borde en modo oscuro */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Sombra en modo oscuro */
+    background-color: rgba(44, 44, 44, 0.9); /* Fondo semitransparente oscuro */
+    color: #e0e0e0; /* Texto claro */
+    border: 1px solid #444; /* Borde más sutil */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra en modo oscuro */
 }
 
 /* Estilo para resaltar el texto blanco en modo oscuro en el div .content */
-body.dark-mode .content p {
+body.dark-mode .content > p { /* Solo los p directos, no los de las tarjetas */
     color: #fff; /* Cambiar el color del texto de los párrafos en modo oscuro */
     /* Agrega otros estilos de resaltado para el texto en blanco aquí */
+}
+
+/* Estilos para las tarjetas de Pokémon en modo oscuro */
+body.dark-mode .pokemon-card,
+body.dark-mode .pokemon-details .pokemon-card { /* Asegura que también aplique en la página de detalle */
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .pokemon-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .pokemon-card-image-container {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode .pokemon-card-content h2 {
+    color: #FFCB05; /* Amarillo Pokémon */
+}
+body.dark-mode .pokemon-card-content p {
+    color: #ccc;
 }

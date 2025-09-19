@@ -14,14 +14,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Itera a través de los datos de los Pokémon en el JSON
             data.forEach((pokemonData) => {
+                // Limpia el nombre del tipo para usarlo como clase CSS (ej. "Fuego/Volador" -> "fuego-volador")
+                const tipoClase = pokemonData.caracteristicas.tipo.toLowerCase().replace('/', '-').replace(' ', '-');
+
                 // Crea el contenido HTML con el botón "Ver Más"
                 const htmlContent = `
-                    <div class="pokemon-card">
-                        <h2>${pokemonData.nombre}</h2>
-                        <img src="${pokemonData.imagen}" alt="${pokemonData.nombre} Image">
-                        <p>${pokemonData.descripcion}</p>
-                        <a href="detalle.html?id=${pokemonData.id}" class="ver-mas-button">Ver más</a>
-                        
+                    <div class="pokemon-card type-${tipoClase}">
+                        <div class="pokemon-card-image-container">
+                            <img class="pokemon-card-image" src="${pokemonData.imagen}" alt="${pokemonData.nombre} Image">
+                        </div>
+                        <div class="pokemon-card-content">
+                            <h2>${pokemonData.nombre}</h2>
+                            <p>${pokemonData.descripcion}</p>
+                            <a href="detalle.html?id=${pokemonData.id}" class="ver-mas-button">Ver más</a>
+                        </div>
                     </div>
                 `;
 
